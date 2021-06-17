@@ -1,24 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Components/Header';
+import Home from './Components/Home';
+import WatchList from './Components/WatchList';
+import Details from './Components/Details';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import * as TvAPI from './Services/TvAPI';
+import React, { useState, useEffect } from 'react';
 
 function App() {
+  const [allMoviesData, setAllMoviesData] = useState([]);
+
+  useEffect(() => {
+    const getAllData = async() => {
+      const data = await TvAPI.allHomeData();
+      setAllMoviesData(data);
+    }
+    getAllData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <Home moviesData={allMoviesData}/>
+        </Route>
+
+        <Route exact path='/my-watch-list'>
+          <WatchList />
+        </Route>
+
+        <Route exact path='/details/:id'>
+          <Header />
+          <Details />
+        </Route>
+      </Switch>
+    </Router>
+    </>
   );
 }
 
