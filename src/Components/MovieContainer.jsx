@@ -9,7 +9,7 @@ export default function MovieContainer({ name, data }) {
           <h1>{name}</h1>
           <div className='titles-wrapper'>
             {data === undefined ? '' 
-              : data.results.map(movie => {
+              : data.results?.map(movie => {
                 return (
                   <Movie key={movie.id} movie={movie} />
                 );

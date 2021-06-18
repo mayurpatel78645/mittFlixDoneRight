@@ -2,8 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as TvAPI from '../Services/TvAPI';
+import Header from './Header';
 
-export default function Details() {
+export default function Details({ getSearchResults }) {
   const { id } = useParams();
 
   const [showDetails, setShowDetails] = useState([]);
@@ -18,6 +19,7 @@ export default function Details() {
 
   return (
     <>
+      <Header getSearchResults={getSearchResults} />
       <div className="show-details">
         <img src={`https://image.tmdb.org/t/p/original${showDetails.backdrop_path}`} alt="" />
         <div className="show-details-inner">
