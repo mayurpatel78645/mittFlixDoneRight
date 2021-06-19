@@ -1,7 +1,8 @@
 import React from 'react';
 import Movie from './Movie';
 
-export default function MovieContainer({ name, data }) {
+export default function MovieContainer({ name, data, handleWatchList, watchListData }) {
+  
   return (
     <>
       <div className='titleList'>
@@ -11,7 +12,7 @@ export default function MovieContainer({ name, data }) {
             {data === undefined ? '' 
               : data.results?.map(movie => {
                 return (
-                  <Movie key={movie.id} movie={movie} />
+                  <Movie key={movie.id} movie={movie} handleWatchList={handleWatchList} watchListData={watchListData} />
                 );
             })}
           </div>

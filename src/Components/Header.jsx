@@ -9,7 +9,6 @@ export default function Header({ getSearchResults }) {
     e.preventDefault();
     const searchValue = e.target[0].value;
     history.push({ pathname: '/search', search: `query=${searchValue}` });
-    //getSearchResults(searchValue);
     e.target[0].value = '';
   }
 

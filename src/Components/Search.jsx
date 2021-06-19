@@ -3,7 +3,7 @@ import MovieContainer from './MovieContainer';
 import { useLocation } from 'react-router-dom';
 import * as TvAPI from '../Services/TvAPI';
 
-export default function Search() {
+export default function Search({ handleWatchList, watchListData }) {
   const [searchData, setSearchData] = useState([]);
   const location = useLocation();
   const query = new URLSearchParams(location.search).get('query');
@@ -18,7 +18,7 @@ export default function Search() {
 
   return (
     <>
-      <MovieContainer name='Results' data={searchData} />
+      <MovieContainer name='Results' data={searchData} handleWatchList={handleWatchList} watchListData={watchListData} />
     </>
   )
 }

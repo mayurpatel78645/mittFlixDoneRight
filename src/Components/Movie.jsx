@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import imageNotAvailable from '../Images/altImage.jpg';
 
-export default function Movie({ movie }) {
+export default function Movie({ movie, handleWatchList, watchListData }) {
   return (
     <>
       <div className="movie">
@@ -20,7 +20,7 @@ export default function Movie({ movie }) {
             </div>
           </div>
         </Link>
-        <div data-toggled="true" className="listToggle">
+        <div onClick={() => handleWatchList(movie)} data-toggled={watchListData.some(item => item.id === movie.id)} className="listToggle">
           <div><i className="fa fa-fw fa-plus"></i><i className="fa fa-fw fa-check"></i></div>
         </div>
       </div>
