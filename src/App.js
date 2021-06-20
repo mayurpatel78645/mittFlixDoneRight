@@ -20,15 +20,15 @@ function App() {
     getAllData();
   }, []);
 
+  const getFilteredWatchList = (prevState, movie) => {
+    const inWatchList = prevState.find(item => item.id === movie.id);
+    if (inWatchList) return prevState.filter(item => item.id !== movie.id);
+    return [...prevState, movie];
+  }
+
   const handleWatchList = (movie) => {
     setWatchListData(prevState => {
-      const inWatchList = prevState.find(item => item.id === movie.id);
-      let newWatchList;
-      if (inWatchList) {
-        newWatchList = prevState.filter(item => item.id !== movie.id);
-      }else {
-        newWatchList = [...prevState, movie];
-      }
+      let newWatchList = getFilteredWatchList(prevState, movie);
       localStorage.setItem('watchList', JSON.stringify(newWatchList));
       return newWatchList;
     });
@@ -54,7 +54,6 @@ function App() {
         <Route path={`/search`}>
           <Search handleWatchList={handleWatchList} watchListData={watchListData} />
         </Route>
-
       </Switch>
     </Router>
     </>

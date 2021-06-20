@@ -18,7 +18,12 @@ export default function Search({ handleWatchList, watchListData }) {
 
   return (
     <>
-      <MovieContainer name='Results' data={searchData} handleWatchList={handleWatchList} watchListData={watchListData} />
+      <MovieContainer 
+        name='Results' 
+        data={searchData} 
+        handleWatchList={handleWatchList} 
+        watchListData={watchListData} 
+      />
     </>
   )
 }

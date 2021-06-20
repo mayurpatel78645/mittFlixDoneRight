@@ -12,7 +12,12 @@ export default function MovieContainer({ name, data, handleWatchList, watchListD
             {data === undefined ? '' 
               : data.results?.map(movie => {
                 return (
-                  <Movie key={movie.id} movie={movie} handleWatchList={handleWatchList} watchListData={watchListData} />
+                  <Movie 
+                    key={movie.id} 
+                    movie={movie} 
+                    handleWatchList={handleWatchList} 
+                    watchListData={watchListData} 
+                  />
                 );
             })}
           </div>

@@ -20,7 +20,10 @@ export default function Movie({ movie, handleWatchList, watchListData }) {
             </div>
           </div>
         </Link>
-        <div onClick={() => handleWatchList(movie)} data-toggled={watchListData.some(item => item.id === movie.id)} className="listToggle">
+        <div 
+          onClick={() => handleWatchList(movie)} 
+          data-toggled={watchListData.some(item => item.id === movie.id)} 
+          className="listToggle">
           <div><i className="fa fa-fw fa-plus"></i><i className="fa fa-fw fa-check"></i></div>
         </div>
       </div>

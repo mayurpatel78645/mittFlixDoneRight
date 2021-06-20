@@ -1,16 +1,3 @@
-//apiKey= b6d02de56d3c873de2132d8f9c789f9c;
-
-// netflix id: 8
-//netflix url:https://api.themoviedb.org/3/discover/tv?api_key=b6d02de56d3c873de2132d8f9c789f9c&language=en-US&sort_by=popularity.desc&page=1&include_null_first_air_dates=false&with_watch_providers=8&watch_region=CA&with_watch_monetization_types=flatrate;
-// crave id: 230;
-//disney+ id: 337;
-
-//apple+ : 350;
-
-//https://api.themoviedb.org/3/tv/60735?api_key=b6d02de56d3c873de2132d8f9c789f9c&language=en-US
-
-//https://api.themoviedb.org/3/search/tv?api_key=b6d02de56d3c873de2132d8f9c789f9c&language=en-US&page=1&query=breaking%20bad&include_adult=false
-
 const url = (id) => {
   const streamingServiceUrl = `https://api.themoviedb.org/3/discover/tv?api_key=b6d02de56d3c873de2132d8f9c789f9c&language=en-US&sort_by=popularity.desc&page=1&include_null_first_air_dates=false&with_watch_providers=${id}&watch_region=CA&with_watch_monetization_types=flatrate`;
   return streamingServiceUrl;

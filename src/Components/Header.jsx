@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
-export default function Header({ getSearchResults }) {
+export default function Header() {
   const history = useHistory();
 
   const handleSearch = (e) => {
@@ -30,7 +30,7 @@ export default function Header({ getSearchResults }) {
           </nav>
         </div>
         <form onSubmit={handleSearch} id="search" className="search">
-          <input type="search" placeholder="Search for a title..." /*value=""*/ />
+          <input type="search" placeholder="Search for a title..." />
           <div className="searchResults"></div>
         </form>
       </header>

@@ -31,7 +31,10 @@ export default function Details({  handleWatchList ,watchListData }) {
           <div className="description">
             {showDetails.overview}
           </div>
-          <button onClick={() => handleWatchList(showDetails)} className={retrieveClassName().className}>{retrieveClassName().innerHTML}</button>
+          <button 
+            onClick={() => handleWatchList(showDetails)} 
+            className={retrieveClassName().className}>{retrieveClassName().innerHTML}
+          </button>
         </div>
       </div>        
     </>
